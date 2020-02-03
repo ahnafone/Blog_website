@@ -1,0 +1,21 @@
+<%- include('partials/header'); -%>
+
+<h1>Home</h1>
+
+<p> <%= firstPara %> </p>
+
+<% posts.forEach(element => { %>
+    <% if(element.post.length < 100) { %>
+        <br>
+        <h3> <%= element.title %> </h3>
+        <p> <%= element.post %> </p>
+    <% } else { %>
+        <br>
+        <h3> <%= element.title %> </h3>
+        <span> <%= element.post.slice(0, 100) %> </span>
+        <a href=<%= "/posts/"+element.url %> >see more</a>
+    <% } %>
+
+<% }); %>
+
+<%- include('partials/footer'); -%>
